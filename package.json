@@ -1,0 +1,48 @@
+{
+  "name": "data-structures",
+  "version": "1.0.0",
+  "description": "classical data structures in JS",
+  "main": "lib/",
+  "scripts": {
+    "build": "tsc --emitDeclarationOnly && babel src --out-dir lib --extensions \".ts,.tsx\"",
+    "type-check": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/one-more/data-structures.git"
+  },
+  "keywords": [
+    "data",
+    "structures",
+    "binary",
+    "search",
+    "tree",
+    "bst",
+    "trie",
+    "min",
+    "heap",
+    "max",
+    "heap",
+    "avl",
+    "tree",
+    "red-back",
+    "tree"
+  ],
+  "author": "one-more",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/one-more/data-structures/issues"
+  },
+  "homepage": "https://github.com/one-more/data-structures#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.51",
+    "@babel/core": "^7.0.0-beta.51",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.51",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.51",
+    "@babel/preset-env": "^7.0.0-beta.51",
+    "@babel/preset-typescript": "^7.0.0-beta.51",
+    "typescript": "^2.9.2",
+    "babel-core": "^6.26.3",
+    "babel-runtime": "^6.26.0"
+  }
+}
