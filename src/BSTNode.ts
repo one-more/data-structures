@@ -1,12 +1,12 @@
 export default class BSTNode {
-  constructor(private value) {}
-
   left: BSTNode;
   right: BSTNode;
   parent: BSTNode;
   height: number = 0;
 
-  insert(value) {
+  constructor(private value: number) {}
+
+  insert(value): BSTNode {
     if (this.value == null) {
       this.value = value;
       return this;
@@ -31,7 +31,7 @@ export default class BSTNode {
     return this;
   }
 
-  remove(value) {
+  remove(value): void {
     if (!this.has(value)) {
       return;
     }
@@ -55,9 +55,9 @@ export default class BSTNode {
     return this.replaceNodeInParent(null);
   }
 
-  replaceNodeInParent(node) {
+  replaceNodeInParent(node): void {
     if (this.parent) {
-      if (this == this.parent.left) {
+      if (this === this.parent.left) {
         this.parent.left = node;
       } else {
         this.parent.right = node;
@@ -68,19 +68,19 @@ export default class BSTNode {
     }
   }
 
-  findMin() {
-    let current: BSTNode = this;
+  findMin(): BSTNode {
+    let current: BSTNode = this.left;
     while(current.left) {
       current = current.left;
     }
     return current;
   }
 
-  has(value) {
-    if (value == this.value) {
+  has(value): boolean {
+    if (value === this.value) {
       return true;
     }
-    let {left, right} = this;
+    const {left, right} = this;
     if (left && right) {
       return this.left.has(value) || this.right.has(value);
     }
@@ -88,16 +88,8 @@ export default class BSTNode {
       return this.left.has(value);
     }
     if (right) {
-      this.right.has(value);
+      return this.right.has(value);
     }
     return false;
-  }
-
-  setLeft(node) {
-    this.left = node;
-  }
-
-  setRight(node) {
-    this.right = node;
   }
 }

@@ -7,15 +7,15 @@ export default class BST {
         this.root = new BSTNode(value);
     }
 
-    add(value: number) {
-        this.root.insert(value);
+    add(value: number): BSTNode {
+        return this.root.insert(value);
     }
 
-    remove(value: number) {
-        this.root.remove(value);
+    remove(value: number): void {
+        return this.root.remove(value);
     }
 
-    has(value: number) {
-        this.root.has(value);
+    has(value: number): boolean {
+        return this.root.has(value);
     }
 }
