@@ -1,0 +1,30 @@
+import { BSTValue } from "../type";
+export default class BtreeNode {
+    order: number;
+    parent: BtreeNode | null;
+    keys: BSTValue[];
+    children: BtreeNode[];
+    readonly isRoot: boolean;
+    readonly minKeysLength: number;
+    readonly maxKeysLength: number;
+    constructor(order: number, parent: BtreeNode | null);
+    insert(value: BSTValue): BtreeNode;
+    insertKey(key: BSTValue): number;
+    removeKey(value: BSTValue): void;
+    hasKey(value: BSTValue): boolean;
+    getNextKeyIndex(value: BSTValue): number;
+    getKeyIndex(fn: Function): number;
+    remove(value: BSTValue): BtreeNode;
+    removeFromNode(value: BSTValue): BtreeNode;
+    swapChildKey(child: BtreeNode, value: BSTValue, replaceKey: BSTValue): BtreeNode;
+    removeFromLeaf(value: BSTValue): BtreeNode;
+    removeFromChild(value: BSTValue): BtreeNode;
+    joinLeftSib(lefttSib: BtreeNode, thisIndex: number): void;
+    joinRightSib(rightSib: BtreeNode, thisIndex: number): void;
+    mergeRight(rightSib: BtreeNode, thisIndex: number): void;
+    mergeLeft(lefttSib: BtreeNode, thisIndex: number): void;
+    needRebalance(): boolean;
+    rebalanceIfNeedTo(value?: BSTValue): BtreeNode;
+    rebalance(value?: BSTValue): BtreeNode;
+    has(value: BSTValue): boolean;
+}

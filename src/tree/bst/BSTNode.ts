@@ -1,12 +1,13 @@
+import { BSTValue } from '../type';
+
 export default class BSTNode {
   left: BSTNode;
   right: BSTNode;
   parent: BSTNode;
-  height: number = 0;
 
-  constructor(private value: number) {}
+  constructor(public value?: BSTValue) {}
 
-  insert(value): BSTNode {
+  insert(value: BSTValue): BSTNode {
     if (this.value == null) {
       this.value = value;
       return this;
@@ -31,7 +32,7 @@ export default class BSTNode {
     return this;
   }
 
-  remove(value): void {
+  remove(value: BSTValue): void {
     if (!this.has(value)) {
       return;
     }
@@ -55,13 +56,15 @@ export default class BSTNode {
     return this.replaceNodeInParent(null);
   }
 
-  replaceNodeInParent(node): void {
+  replaceNodeInParent(node: BSTNode | null): void {
     if (this.parent) {
       if (this === this.parent.left) {
         this.parent.left = node;
       } else {
         this.parent.right = node;
       }
+    } else {
+      this.value = null;
     }
     if (node) {
       node.parent = this.parent;
@@ -76,7 +79,7 @@ export default class BSTNode {
     return current;
   }
 
-  has(value): boolean {
+  has(value: BSTValue): boolean {
     if (value === this.value) {
       return true;
     }
