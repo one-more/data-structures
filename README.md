@@ -19,6 +19,15 @@ interface BinaryTree {
 }
 ````
 
+### usage
+````es5
+import {BST} from 'data-structires'
+
+const tree = new BST();
+tree.insert(5);
+tree.remove(5)
+````
+
 ## BTree
 ````es6
 type BSTValue = string | number;
@@ -31,8 +40,19 @@ interface BtreeNode {
 interface Btree {
   root: BtreeNode;
 
+  constructor(order: number): void
+
   insert(value: BSTValue): BTree
   remove(value: BSTValue): BTree
   has(value: BSTValue): boolean
 }
+````
+
+### usage
+````es5
+import {BTree} from 'data-structires'
+
+const tree = new BTree(5);
+tree.insert(5);
+tree.remove(5)
 ````
