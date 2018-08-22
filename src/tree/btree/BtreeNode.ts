@@ -26,7 +26,10 @@ export default class BtreeNode {
   constructor(
     public order: number,
     public parent: BtreeNode | null
-  ) {}
+  ) {
+    this.order = order;
+    this.parent = parent;
+  }
 
   insert(value: BSTValue): BtreeNode {
     if (this.hasKey(value)) {

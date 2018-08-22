@@ -5,7 +5,9 @@ export default class BSTNode {
   right: BSTNode;
   parent: BSTNode;
 
-  constructor(public value?: BSTValue) {}
+  constructor(public value?: BSTValue) {
+    this.value = value;
+  }
 
   insert(value: BSTValue): BSTNode {
     if (this.value == null) {
